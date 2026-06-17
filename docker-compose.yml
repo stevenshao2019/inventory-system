@@ -1,3 +1,9 @@
+# ====================================================
+# Inventory Management System - Docker Compose
+# Usage:
+#   Development: docker-compose up
+#   Production:  docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
+# ====================================================
 version: '3.8'
 
 services:
@@ -9,7 +15,7 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=sqlite:///./data/inventory.db
-      - SECRET_KEY=${SECRET_KEY:-change-me-in-production}
+      - SECRET_KEY=${SECRET_KEY:-dev-insecure-change-in-prod}
     volumes:
       - ./backend:/app
       - data:/app/data
